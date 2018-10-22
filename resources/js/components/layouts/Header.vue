@@ -172,6 +172,35 @@
                                     </ul>
                                 </div>
                             </li>
+
+
+                            <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true">
+                                <a href="javascript:;" class="m-menu__link m-menu__toggle">
+                                    <i class="m-menu__link-icon fa-cog"></i>
+                                    <span class="m-menu__link-text">{{ $lang.main.lang }}</span>
+                                    <i class="m-menu__hor-arrow la la-angle-down"></i>
+                                    <i class="m-menu__ver-arrow la la-angle-right"></i>
+                                </a>
+                                <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
+                                    <span class="m-menu__arrow m-menu__arrow--adjust"></span>
+                                    <ul class="m-menu__subnav">
+                                        <li class="m-menu__item " aria-haspopup="true">
+                                            <a class="m-menu__link ">
+                                                <i class="m-menu__link-icon flaticon-file"></i>
+                                                <span class="m-menu__link-text" @click="changeLocale('vi')"><img src="/images/covietnam.jpg" width="50px"></span>
+                                            </a>
+                                        </li>
+                                        <li class="m-menu__item " aria-haspopup="true">
+                                            <a class="m-menu__link ">
+                                                <i class="m-menu__link-icon flaticon-file"></i>
+                                                <span class="m-menu__link-text" @click="changeLocale('en')"><img src="/images/coanh.png" width="50px"></span></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
                         </ul>
                     </div>
 
@@ -305,3 +334,13 @@
         </div>
     </header>
 </template>
+
+<script type="text/javascript">
+    export default {
+        methods: {
+            changeLocale(lang) {
+                this.$lang.setLang(lang)
+            }
+        }
+    }
+</script>

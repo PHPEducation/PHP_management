@@ -14,6 +14,12 @@ import router from './routers';
 import 'fullcalendar/dist/fullcalendar.css';
 import { store } from './store/store';
 import axios from 'axios';
+var Vue = require('vue');
+var Lang = require('vuejs-localization');
+ 
+//Notice that you need to specify the lang folder, in this case './lang'
+Lang.requireAll(require.context('./lang', true, /\.js$/));
+Vue.use(Lang);
 
 Vue.use(VueRouter);
 Vue.use(FullCalendar);
