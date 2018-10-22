@@ -68,7 +68,8 @@ export default {
                 .then(response => {
                     this.$router.push({ name: 'index' });
                 });
-            }
-        }
-};
+        },
+    },
+
+}
 </script>

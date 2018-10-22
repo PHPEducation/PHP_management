@@ -25,6 +25,7 @@
     "bootstrap": "^4.1.3",
     "vue-full-calendar": "^2.7.0",
     "vue-router": "^3.0.1",
+    "vuejs-localization": "^1.0.3",
     "vuex": "^3.0.1"
   }
 }
