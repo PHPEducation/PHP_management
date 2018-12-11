@@ -103,7 +103,7 @@ class UserController extends Controller
 
         $user = Auth::user();
 
-        if ($user->avatar) {
+        if (isset($user->avatar)) {
             Storage::delete($user->avatar);
         }
 

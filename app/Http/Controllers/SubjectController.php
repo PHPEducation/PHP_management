@@ -31,7 +31,7 @@ class SubjectController extends Controller
         $this->subjectRepository->create($request->all());
 
         return response()->json([
-            'message' => config('api.created'),
+            'message' => config('api.create'),
         ]);
     }
 

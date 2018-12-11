@@ -25,8 +25,8 @@ Route::group(['middleware' => [
     Route::get('current-user', 'AuthController@currentUser');
     Route::patch('update-role-user/{id}', 'UserController@updateRole');
     Route::get('/profile', 'UserController@profile');
-    Route::patch('/profile', 'UserController@update');
-    Route::post('/profile/avatar', 'UserController@updateAvatar');
+    Route::patch('/profile', 'UserController@update')->name('update.role');
+    Route::post('/profile/avatar', 'UserController@updateAvatar')->name('update.avatar');
     Route::patch('/password', 'UserController@password');
     Route::resource('/workspaces', 'WorkspaceController');
     Route::resource('/teams', 'TeamController');
