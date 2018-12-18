@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\Http\Controller;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -14,27 +14,38 @@ use App\User;
 
 class UserTest extends TestCase
 {
-	use RefreshDatabase;
-	use WithoutMiddleware;
+    use RefreshDatabase;
+    use WithoutMiddleware;
 
     public function test_update_role()
     {
-    	$data = [
-    		'role_id' => 1,
-    	];
+        $data = [
+            'role_id' => 1,
+        ];
 
-    	$user = factory(User::class)->create();
+        $user = factory(User::class)->create();
 
-    	$response = $this->json('patch', route('update.role', $user->id), $data);
-    	$response->assertStatus(200);
+        $response = $this->actingAs($user)->json('PATCH', route('update.role', $user->id), $data);
+        $response->assertStatus(200);
+    }
+
+    public function test_login()
+    {
+        $user = factory(User::class)->make();;
+        $res = $this->json('POST', route('login'), [
+            'email' => $user->email,
+            'password' => $user->password,
+        ]);
+
+        $res->assertStatus(200);
     }
 
     // public function test_update_avatar()
     // {
-    // 	Storage::fake('public');
+    //  Storage::fake('public');
 
     //     $file = UploadedFile::fake()->image('avatar.jpg');
-    // 	$response = $this->json('POST', route('update.avatar'), [
+    //  $response = $this->json('POST', route('update.avatar'), [
     //         'avatar' => $file,
     //     ]);
 
